@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "pi4front"
+  "defaultProject": "pi4front",
+  "cli": {
+    "analytics": false
+  }
 }

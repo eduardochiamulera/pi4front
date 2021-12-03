@@ -1,0 +1,23 @@
+<h3>{{pageTitle}}</h3>
+
+<form [formGroup]="produtoForm" (submit)='salvar()'>
+    <input type="hidden" formControlName="_id">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" formControlName="name">
+    <div  *ngIf="produtoForm.get('name').invalid && produtoForm.get('name').touched">
+        <div *ngIf="produtoForm.get('name').errors.required">dado obrigatório</div>
+        <div *ngIf="produtoForm.get('name').errors.minlength">deve ter no mínimo 2 caracteres</div>
+    </div>
+    <br />
+    
+    <label for="price">Preco:</label>
+    <input type="number" id="price" formControlName="price">
+    <div  *ngIf="produtoForm.get('price').invalid && produtoForm.get('price').touched">
+        <div *ngIf="produtoForm.get('price').errors.required">dado obrigatório</div>
+        <div *ngIf="produtoForm.get('price').errors.min">preço invalido</div>
+    </div>
+    <br />
+    
+    <button type="submit" [disabled]="produtoForm.invalid">Salvar</button>
+    <button routerLink="/produto"> << Voltar</button>
+</form>
